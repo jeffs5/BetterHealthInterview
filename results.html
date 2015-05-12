@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  <body>
+
+  	To easily see data
+  	<br>
+    {% for result in results %}
+      <div>
+        <b> 
+        	{{ result.gender }}. {{ result.results }} 
+        </b>
+      </div>
+    {% endfor %}
+    
+    <br>
+    Male
+    {% for k,v in maleResults.items() %}
+      <div>
+        <b> 
+        	{{ k }}. {{ v }} 
+        </b>
+      </div>
+    {% endfor %}
+
+    <br>
+    Female
+
+    {% for k,v in femaleResults.items() %}
+      <div>
+        <b> 
+        	{{ k }}. {{ v }} 
+        </b>
+      </div>
+    {% endfor %}
+  </body>
+</html>
+{% endautoescape %}

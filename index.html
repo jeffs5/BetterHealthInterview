@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  <body>
+    <form action="/add" method="post">
+    {% for question in questions %}
+      <div>
+        <b> {{ question.number }}. {{ question.title }} </b>
+
+          {% for value in values %}
+            {% if question.name == value.name %}
+              <br>
+              <input type={{ question.qtype }} name= {{ question.name }} value={{ value.value}}>{{ value.text }}
+
+            {% endif %}
+          {% endfor %}
+        
+      </div>
+    {% endfor %}
+    <div><input id="btnSubmit" type="submit" value="Done"></div>
+    </form>
+
+  </body>
+</html>
+{% endautoescape %}
